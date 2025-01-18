@@ -15,13 +15,16 @@ bundle bookmarks "https://github.com/Yukaii/bookmarks.kak" %{
   # Add default keybindings
   bookmarks-add-bindings
 
-  # Or do your own mapping
-  map global user m ':bookmarks-add<ret>' -docstring 'add bookmark'
-  map global user M ':bookmarks-show-list<ret>' -docstring 'show bookmarks'
+  # or do your custom mode mapping
+  declare-user-mode mark
+  map global user m ': enter-user-mode mark<ret>' -docstring "Enter mark mode"
+
+  map global mark l ':bookmarks-show-list<ret>'     -docstring "List bookmarks"
+  map global mark a ':bookmarks-add<ret>'           -docstring "Add bookmark"
 
   # Different navigation keys
-  map global normal <c-1> ':bookmarks-nav 1<ret>'
-  map global normal <c-2> ':bookmarks-nav 2<ret>'
+  map global mark 1 ':bookmarks-nav 1<ret>'         -docstring "Go to bookmark"
+  map global mark 2 ':bookmarks-nav 2<ret>'         -docstring "Go to bookmark"
   # ... and so on
 }
 ```
