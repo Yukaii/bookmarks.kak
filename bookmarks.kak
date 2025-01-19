@@ -137,18 +137,21 @@ define-command -hidden bookmarks-check %{
 
 # Default key bindings
 define-command bookmarks-add-bindings -docstring "Add convenient keybindings for bookmarks" %{
-  map global user b ":bookmarks-add<ret>" -docstring "add bookmark"
-  map global user B ":bookmarks-show-list<ret>" -docstring "show bookmarks"
+  declare-user-mode mark
 
-  map global normal <a-1> ":bookmarks-nav 1<ret>"
-  map global normal <a-2> ":bookmarks-nav 2<ret>"
-  map global normal <a-3> ":bookmarks-nav 3<ret>"
-  map global normal <a-4> ":bookmarks-nav 4<ret>"
-  map global normal <a-5> ":bookmarks-nav 5<ret>"
-  map global normal <a-6> ":bookmarks-nav 6<ret>"
-  map global normal <a-7> ":bookmarks-nav 7<ret>"
-  map global normal <a-8> ":bookmarks-nav 8<ret>"
-  map global normal <a-9> ":bookmarks-nav 9<ret>"
+  map global user m ': enter-user-mode mark<ret>'          -docstring "Enter mark mode"
+  map global mark l ':bookmarks-show-list<ret>'            -docstring "List bookmarks"
+  map global mark a ':bookmarks-add-prompt<ret>'           -docstring "Add bookmark"
+
+  map global mark 1 ":bookmarks-nav 1<ret>"
+  map global mark 2 ":bookmarks-nav 2<ret>"
+  map global mark 3 ":bookmarks-nav 3<ret>"
+  map global mark 4 ":bookmarks-nav 4<ret>"
+  map global mark 5 ":bookmarks-nav 5<ret>"
+  map global mark 6 ":bookmarks-nav 6<ret>"
+  map global mark 7 ":bookmarks-nav 7<ret>"
+  map global mark 8 ":bookmarks-nav 8<ret>"
+  map global mark 9 ":bookmarks-nav 9<ret>"
 }
 
 # Buffer-specific settings for bookmarks list
