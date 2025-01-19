@@ -2,6 +2,12 @@
 declare-option str-list bookmarks
 declare-option str bookmarks_state_file
 
+define-command bookmarks-add-prompt %{
+  prompt bookmark: %{
+    bookmarks-add %val{text}
+  }
+}
+
 # Add current position to bookmarks
 define-command bookmarks-add -params ..1 -docstring "bookmarks-add [description]: Add current position to bookmarks" %{
   evaluate-commands %sh{
